@@ -39,11 +39,9 @@ async def vapi_webhook(req: Request):
                     "result": {"ticket_id": "TKT-123", "issue": issue}
                 })
 
-            else:
-                results.append({
-                    "toolCallId": call.get("id"),
-                    "result": {"error": f"Unknown tool: {name}"}
-                })
+            
+
+
 
         # Vapi expects you to respond with tool results tied to toolCallId
         return JSONResponse({"toolCallResultList": results})
